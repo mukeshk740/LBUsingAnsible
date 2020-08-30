@@ -1,0 +1,15 @@
+- hosts: localhost
+  roles:
+   - role: ec2provisioning
+  tags: provisioning
+    
+- hosts: lb
+  roles:
+   - role: inst_haproxy
+  tags: install_haproxy
+
+- hosts: webserver
+  roles:
+   - role: inst_httpd
+  tags: inst_httpd
+

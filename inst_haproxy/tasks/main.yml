@@ -1,0 +1,16 @@
+---
+# tasks file for inst_haproxy
+- name: install HAProxy
+  package:
+      name: "haproxy"
+      state: present
+
+- name: coying haproxy.cfg to LB
+  template:
+      src: haproxy.cfg
+      dest: /etc/haproxy/haproxy.cfg
+- name: restart HAProxy srevice
+  service:
+      name: haproxy
+      state: restarted 
+     
